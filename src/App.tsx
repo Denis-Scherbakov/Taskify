@@ -1,15 +1,13 @@
 import "./App.css";
-import { ActiveTasks } from "./components/activeTasks";
 import { AddTask } from "./components/addTask";
-import { CompletedTasks } from "./components/completedTasks";
+import { AllTasks } from "./components/allTasks";
 
 function App() {
   return (
     <div className="App">
       <h1 className="heading">TASKIFY</h1>
       <AddTask />
-      <ActiveTasks />
-      <CompletedTasks />
+      <AllTasks />
     </div>
   );
 }

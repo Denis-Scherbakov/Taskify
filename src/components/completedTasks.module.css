@@ -1,0 +1,27 @@
+.completedTasksWrapper {
+  background-color: #eb6750;
+  width: 30vw;
+  min-width: 200px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+.completedTasks_h3 {
+  color: white;
+  font-size: 3em;
+  margin: 10px;
+}
+
+.completedTasks_ul {
+  list-style: none;
+  padding: 0;
+}
+
+.completedTasks_li {
+  font-size: 2em;
+  margin: 10px;
+  padding: 10px;
+  font-size: 2em;
+  background-color: #e9c41d;
+  background-color: #e9c41d;
+}

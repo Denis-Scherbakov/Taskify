@@ -1,0 +1,12 @@
+.addTaskWrapper {
+  width: auto;
+}
+
+.addTaskInput {
+  width: 60vw;
+  min-width: 200px;
+  height: 60px;
+  border-color: black;
+  border-radius: 30px;
+  font-size: 1.5em;
+}
