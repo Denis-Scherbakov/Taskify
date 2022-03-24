@@ -14,6 +14,10 @@
   z-index: 1;
 }
 
+.addTaskInput:focus {
+  outline: none;
+}
+
 .addTaskButton {
   position: absolute;
   cursor: pointer;

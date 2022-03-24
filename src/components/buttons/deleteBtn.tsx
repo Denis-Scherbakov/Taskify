@@ -1,17 +1,19 @@
-export function TrashSvg() {
+import styles from "./listButtons.module.css";
+
+export function DeleteBtn() {
   return (
-    <svg
-      version="1.1"
-      id="Layer_1"
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      width="25px"
-      height="25px"
-      viewBox="0 0 458.5 458.5"
-    >
-      <g>
-        <g>
+    <div className={styles.buttonWrapper}>
+      <button className={styles.buttonTask}>
+        <svg
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="25px"
+          height="25px"
+          viewBox="0 0 458.5 458.5"
+        >
           <g>
             <path
               d="M382.078,57.069h-89.78C289.128,25.075,262.064,0,229.249,0S169.37,25.075,166.2,57.069H76.421
@@ -35,8 +37,8 @@ export function TrashSvg() {
 				C136.828,385.607,143.544,392.323,151.828,392.323z"
             />
           </g>
-        </g>
-      </g>
-    </svg>
+        </svg>
+      </button>
+    </div>
   );
 }

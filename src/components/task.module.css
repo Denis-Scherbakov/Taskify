@@ -1,0 +1,14 @@
+.activeTasks_li {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2em;
+  background-color: #e9c41d;
+  margin-top: 5px;
+}
+
+.taskP {
+  word-break: break-all;
+  margin: 10px;
+}

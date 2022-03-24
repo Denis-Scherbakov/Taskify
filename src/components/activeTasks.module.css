@@ -15,10 +15,3 @@
   list-style: none;
   padding: 0;
 }
-
-.activeTasks_li {
-  margin: 10px;
-  padding: 10px;
-  font-size: 2em;
-  background-color: #e9c41d;
-}
