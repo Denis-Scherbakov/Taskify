@@ -1,12 +1,13 @@
 import styles from "./listButtons.module.css";
-import { AcceptBtn } from "./acceptBtn";
+import { CompleteBtn } from "./completeBtn";
 import { EditBtn } from "./editBtn";
 import { DeleteBtn } from "./deleteBtn";
+import { todoItem } from "../../typescript/interfaces";
 
-export function ListBtns() {
+export function ListBtns(props: Partial<todoItem>) {
   return (
     <div className={styles.listButtonsWrapper}>
-      <AcceptBtn />
+      <CompleteBtn id={props.id} />
       <EditBtn />
       <DeleteBtn />
     </div>

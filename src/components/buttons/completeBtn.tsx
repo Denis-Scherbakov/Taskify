@@ -1,9 +1,23 @@
+import { todoItem } from "../../typescript/interfaces";
 import styles from "./listButtons.module.css";
+import { useDispatch } from "react-redux";
+import { completeTask } from "../../redux/actions";
+import { MouseEvent } from "react";
 
-export function AcceptBtn() {
+export function CompleteBtn(props: Partial<todoItem>) {
+  const dispatch = useDispatch();
+  function completeTaskHandler(e: MouseEvent<HTMLButtonElement>) {
+    dispatch(completeTask(e.currentTarget.id));
+    console.log(e.currentTarget.id);
+  }
+
   return (
     <div className={styles.buttonWrapper}>
-      <button className={styles.buttonTask}>
+      <button
+        id={props.id}
+        className={styles.buttonTask}
+        onClick={(e) => completeTaskHandler(e)}
+      >
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"

@@ -3,6 +3,7 @@
   width: 30vw;
   min-width: 200px;
   border-radius: 4px;
+  padding-bottom: 10px;
 }
 
 .activeTasks_h3 {
