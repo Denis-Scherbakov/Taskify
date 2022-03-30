@@ -1,9 +1,22 @@
+import { todoItem } from "../../typescript/interfaces";
 import styles from "./listButtons.module.css";
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../../redux/actions";
+import { MouseEvent } from "react";
 
-export function DeleteBtn() {
+export function DeleteBtn(props: Partial<todoItem>) {
+  const dispatch = useDispatch();
+  function deleteTaskHandler(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    dispatch(deleteTask(e.currentTarget.id));
+  }
   return (
     <div className={styles.buttonWrapper}>
-      <button className={styles.buttonTask}>
+      <button
+        className={styles.buttonTask}
+        onClick={(e) => deleteTaskHandler(e)}
+        id={props.id}
+      >
         <svg
           version="1.1"
           id="Layer_1"

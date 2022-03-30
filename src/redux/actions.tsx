@@ -1,5 +1,10 @@
-import { ADD_TASK } from "./types";
-import { TASK_COMPLETED } from "./types";
+import {
+  ADD_TASK,
+  DELETE_TASK,
+  COMPLETE_TASK,
+  EDIT_TASK,
+  ACCEPT_CHANGES,
+} from "./types";
 
 export function createTask(task: string) {
   return {
@@ -10,7 +15,28 @@ export function createTask(task: string) {
 
 export function completeTask(id: string) {
   return {
-    type: TASK_COMPLETED,
+    type: COMPLETE_TASK,
     payload: id,
+  };
+}
+
+export function deleteTask(id: string) {
+  return {
+    type: DELETE_TASK,
+    payload: id,
+  };
+}
+
+export function editTask(id: string) {
+  return {
+    type: EDIT_TASK,
+    payload: id,
+  };
+}
+
+export function acceptChanges(id: string, text: string) {
+  return {
+    type: ACCEPT_CHANGES,
+    payload: { id: id, text: text },
   };
 }

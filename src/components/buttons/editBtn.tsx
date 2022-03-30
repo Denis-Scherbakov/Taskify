@@ -1,9 +1,21 @@
+import { todoItem } from "../../typescript/interfaces";
 import styles from "./listButtons.module.css";
+import { useDispatch } from "react-redux";
+import { editTask } from "../../redux/actions";
+import { MouseEvent } from "react";
 
-export function EditBtn() {
+export function EditBtn(props: Partial<todoItem>) {
+  const dispatch = useDispatch();
+  function toggleEdit(e: MouseEvent<HTMLButtonElement>) {
+    dispatch(editTask(e.currentTarget.id));
+  }
   return (
     <div className={styles.buttonWrapper}>
-      <button className={styles.buttonTask}>
+      <button
+        className={styles.buttonTask}
+        id={props.id}
+        onClick={(e) => toggleEdit(e)}
+      >
         {" "}
         <svg
           version="1.1"

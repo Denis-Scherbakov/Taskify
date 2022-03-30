@@ -8,8 +8,8 @@ export function ListBtns(props: Partial<todoItem>) {
   return (
     <div className={styles.listButtonsWrapper}>
       <CompleteBtn id={props.id} />
-      <EditBtn />
-      <DeleteBtn />
+      <EditBtn id={props.id} />
+      <DeleteBtn id={props.id} />
     </div>
   );
 }
