@@ -24,6 +24,7 @@ export function AddTask() {
         className={styles.addTaskInput}
         type="text"
         onChange={(e) => taskHandler(e)}
+        placeholder="Enter a task"
       />
       <button onClick={(e) => addTask(e)} className={styles.addTaskButton}>
         Go

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 export function EditItem(props: Partial<todoItem>) {
   const [text, setText] = useState(props.taskText);
   const dispatch = useDispatch();
-  function editText(e: ChangeEvent<HTMLTextAreaElement>) {
+  function editText(e: ChangeEvent<HTMLInputElement>) {
     setText(e.currentTarget.value);
   }
 
@@ -16,11 +16,13 @@ export function EditItem(props: Partial<todoItem>) {
   }
   return (
     <li className={styles.editTasks_li}>
-      <textarea
+      <input
+        type="text"
+        autoFocus
         className={styles.editInput}
         value={text}
         onChange={(e) => editText(e)}
-      ></textarea>
+      ></input>
       <button
         className={styles.acceptChanges_button}
         id={props.id}

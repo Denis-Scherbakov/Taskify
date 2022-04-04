@@ -11,6 +11,7 @@
 .editInput {
   font-size: 1em;
   width: 400px;
+  height: 60px;
 }
 
 .acceptChanges_button {
