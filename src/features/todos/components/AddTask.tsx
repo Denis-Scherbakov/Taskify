@@ -1,7 +1,7 @@
 import { MouseEvent, useState } from "react";
-import { createTask } from "../redux/actions";
 import styles from "./addTask.module.css";
 import { useDispatch } from "react-redux";
+import { createTask } from "../store/actions";
 
 export function AddTask() {
   const dispatch = useDispatch();

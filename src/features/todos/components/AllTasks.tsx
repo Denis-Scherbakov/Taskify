@@ -1,6 +1,6 @@
 import styles from "./allTasks.module.css";
-import { ActiveTasks } from "./activeTasks";
-import { CompletedTasks } from "./completedTasks";
+import { ActiveTasks } from "./ActiveTasks";
+import { CompletedTasks } from "./CompletedTasks";
 
 export function AllTasks() {
   return (

@@ -1,7 +1,6 @@
+import { AddTask } from "../features/todos/components/AddTask";
+import { AllTasks } from "../features/todos/components/AllTasks";
 import "./App.css";
-
-import { AddTask } from "./components/addTask";
-import { AllTasks } from "./components/allTasks";
 
 function App() {
   return (

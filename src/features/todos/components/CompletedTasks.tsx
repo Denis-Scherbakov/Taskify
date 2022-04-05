@@ -1,8 +1,8 @@
-import { todoItem } from "../typescript/interfaces";
 import { RootStateOrAny, useSelector } from "react-redux";
-import { Task } from "./task";
-import { EditItem } from "./editItem";
+import { Task } from "./Task";
+import { EditItem } from "./EditItem";
 import styles from "./completedTasks.module.css";
+import { TodoItemI } from "../types";
 
 export function CompletedTasks() {
   const store = useSelector((state: RootStateOrAny) => state);
@@ -11,7 +11,7 @@ export function CompletedTasks() {
       <div className={styles.completedTasksWrapper}>
         <h3 className={styles.completedTasks_h3}>Completed Tasks</h3>
         <ul className={styles.completedTasks_ul}>
-          {store.map((item: todoItem) => {
+          {store.map((item: TodoItemI) => {
             if (!item.active && !item.isEdit) {
               return (
                 <Task taskText={item.taskText} key={item.id} id={item.id} />
@@ -30,7 +30,7 @@ export function CompletedTasks() {
   );
 }
 
-// {store.map((item: todoItem) =>
+// {store.map((item: TodoItemI) =>
 //   item.active === false ? (
 //     <Task taskText={item.taskText} key={item.id} id={item.id} />
 //   ) : null

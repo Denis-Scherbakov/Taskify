@@ -4,7 +4,7 @@ import {
   DELETE_TASK,
   EDIT_TASK,
   ACCEPT_CHANGES,
-} from "./types";
+} from "./constants";
 
 const initialState = [
   {

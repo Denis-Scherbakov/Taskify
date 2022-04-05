@@ -4,7 +4,7 @@ import {
   COMPLETE_TASK,
   EDIT_TASK,
   ACCEPT_CHANGES,
-} from "./types";
+} from "./constants";
 
 export function createTask(task: string) {
   return {

@@ -1,4 +1,4 @@
-export interface todoItem {
+export interface TodoItemI {
   id: string;
   taskText: string;
   active: boolean;

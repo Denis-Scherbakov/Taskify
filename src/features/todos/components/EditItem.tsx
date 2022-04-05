@@ -1,10 +1,10 @@
 import { ChangeEvent, MouseEvent, useState } from "react";
-import { acceptChanges } from "../redux/actions";
-import { todoItem } from "../typescript/interfaces";
 import styles from "./editItem.module.css";
 import { useDispatch } from "react-redux";
+import { TodoItemI } from "../types";
+import { acceptChanges } from "../store/actions";
 
-export function EditItem(props: Partial<todoItem>) {
+export function EditItem(props: Partial<TodoItemI>) {
   const [text, setText] = useState(props.taskText);
   const dispatch = useDispatch();
   function editText(e: ChangeEvent<HTMLInputElement>) {
