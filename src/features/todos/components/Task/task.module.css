@@ -6,9 +6,15 @@
   font-size: 2em;
   background-color: #e9c41d;
   margin-top: 5px;
+  padding: 5px;
 }
 
 .taskP {
   word-break: break-all;
   margin: 10px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 5px;
 }

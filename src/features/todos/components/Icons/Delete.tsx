@@ -1,4 +1,4 @@
-export function DeleteIcon() {
+export function Delete() {
   return (
     <svg
       version="1.1"

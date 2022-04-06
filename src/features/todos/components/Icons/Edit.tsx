@@ -1,4 +1,4 @@
-export function EditIcon() {
+export function Edit() {
   return (
     <svg
       version="1.1"

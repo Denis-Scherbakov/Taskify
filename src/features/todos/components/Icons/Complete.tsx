@@ -1,4 +1,4 @@
-export function CompleteIcon() {
+export function Complete() {
   return (
     <svg
       version="1.0"
