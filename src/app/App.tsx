@@ -1,5 +1,5 @@
 import { AddTask } from "../features/todos/components/AddTask";
-import { AllTasks } from "../features/todos/components/AllTasks";
+import { Tasks } from "../features/todos/components/Tasks";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1 className="heading">TASKIFY</h1>
       <AddTask />
-      <AllTasks />
+      <Tasks />
     </div>
   );
 }
