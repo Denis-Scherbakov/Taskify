@@ -7,11 +7,8 @@ import {
   deleteTask,
   editTask,
 } from "../../store/actions";
-
 import { TodoItemI } from "../../types";
-
 import Icons from "../Icons";
-
 import styles from "./task.module.css";
 
 export function Task(props: Pick<TodoItemI, "id" | "taskText" | "isEdit">) {
