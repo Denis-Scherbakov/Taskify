@@ -1,6 +1,6 @@
 import {
   ADD_TASK,
-  COMPLETE_TASK,
+  TOGGLE_TASK,
   DELETE_TASK,
   ACCEPT_CHANGES,
 } from "./constants";
@@ -29,7 +29,7 @@ function todos(state = initialState, action: any) {
       },
       ...state,
     ];
-  } else if (action.type === COMPLETE_TASK) {
+  } else if (action.type === TOGGLE_TASK) {
     return state.map((item) => {
       if (item.id === action.payload) {
         return { ...item, active: !item.active };

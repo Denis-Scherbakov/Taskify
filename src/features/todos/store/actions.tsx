@@ -1,7 +1,7 @@
 import {
   ADD_TASK,
   DELETE_TASK,
-  COMPLETE_TASK,
+  TOGGLE_TASK,
   ACCEPT_CHANGES,
 } from "./constants";
 
@@ -12,9 +12,9 @@ export function createTask(task: string) {
   };
 }
 
-export function completeTask(id: string) {
+export function toggleTask(id: string) {
   return {
-    type: COMPLETE_TASK,
+    type: TOGGLE_TASK,
     payload: id,
   };
 }
