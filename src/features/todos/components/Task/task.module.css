@@ -1,12 +1,12 @@
-.activeTasks_li {
+.tasks_li {
   display: flex;
-  margin: 10px;
   justify-content: space-between;
   align-items: center;
-  font-size: 2em;
-  background-color: #e9c41d;
+  margin: 10px;
   margin-top: 5px;
   padding: 5px;
+  font-size: 2em;
+  background-color: #e9c41d;
 }
 
 .taskP {
@@ -17,16 +17,6 @@
 .buttonsWrapper {
   display: flex;
   gap: 5px;
-}
-
-.editTasks_li {
-  display: flex;
-  margin: 10px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 2em;
-  background-color: #e9c41d;
-  margin-top: 5px;
 }
 
 .editInput {
@@ -40,4 +30,8 @@
   font-size: 0.6em;
   height: 68px;
   background-color: #e9c41d;
+}
+
+.edit_form {
+  display: flex;
 }

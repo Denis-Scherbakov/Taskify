@@ -1,62 +1,59 @@
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "../../../../common/components/Button";
-import {
-  acceptChanges,
-  completeTask,
-  deleteTask,
-  editTask,
-} from "../../store/actions";
+import { acceptChanges, completeTask, deleteTask } from "../../store/actions";
 import { TodoItemI } from "../../types";
 import Icons from "../Icons";
 import styles from "./task.module.css";
 
-export function Task(props: Pick<TodoItemI, "id" | "taskText" | "isEdit">) {
+export function Task({ id, taskText }: Pick<TodoItemI, "id" | "taskText">) {
   const dispatch = useDispatch();
-  const [text, setText] = useState(props.taskText);
+  const [text, setText] = useState(taskText);
+  const [isEdit, setIsEdit] = useState(false);
+
   function editText(e: ChangeEvent<HTMLInputElement>) {
     setText(e.currentTarget.value);
   }
-  function acceptChangesHandler(e: MouseEvent<HTMLButtonElement>) {
-    dispatch(acceptChanges(e.currentTarget.id, e.currentTarget.value));
+  function acceptChangesHandler(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    dispatch(acceptChanges(id, text));
+    toggleEdit();
   }
   const completeTaskHandler = (id: string) => () => dispatch(completeTask(id));
-  const toggleEdit = (id: string) => () => dispatch(editTask(id));
+  const toggleEdit = () => setIsEdit((isEdit) => !isEdit);
   const deleteTaskHandler = (id: string) => () => dispatch(deleteTask(id));
 
   return (
     <div>
-      {props.isEdit ? (
-        <li className={styles.editTasks_li}>
-          <input
-            type="text"
-            autoFocus
-            className={styles.editInput}
-            value={text}
-            onChange={(e) => editText(e)}
-          ></input>
-          <button
-            className={styles.acceptChanges_button}
-            id={props.id}
-            value={text}
-            onClick={(e) => acceptChangesHandler(e)}
-          >
-            Accept Changes
-          </button>
+      {isEdit ? (
+        <li className={styles.tasks_li}>
+          <form className={styles.edit_form} onSubmit={acceptChangesHandler}>
+            <input
+              type="text"
+              autoFocus
+              className={styles.editInput}
+              value={text}
+              onChange={(e) => editText(e)}
+            ></input>
+            <button
+              type="submit"
+              className={styles.acceptChanges_button}
+              value={text}
+            >
+              Accept Changes
+            </button>
+          </form>
         </li>
       ) : (
-        <li className={styles.activeTasks_li}>
-          <p className={styles.taskP}>{props.taskText}</p>
+        <li className={styles.tasks_li}>
+          <p className={styles.taskP}>{taskText}</p>
           <div className={styles.buttonsWrapper}>
             <Button
               icon={<Icons.Complete />}
-              onClick={completeTaskHandler(props.id)}
+              onClick={completeTaskHandler(id)}
             />
-            <Button icon={<Icons.Edit />} onClick={toggleEdit(props.id)} />
-            <Button
-              icon={<Icons.Delete />}
-              onClick={deleteTaskHandler(props.id)}
-            />
+            <Button icon={<Icons.Edit />} onClick={toggleEdit} />
+            <Button icon={<Icons.Delete />} onClick={deleteTaskHandler(id)} />
           </div>
         </li>
       )}
