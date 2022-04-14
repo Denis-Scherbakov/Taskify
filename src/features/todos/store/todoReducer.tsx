@@ -1,3 +1,4 @@
+import { TodosAction } from "./actions";
 import {
   ADD_TASK,
   TOGGLE_TASK,
@@ -18,34 +19,37 @@ const initialState = [
   },
 ];
 
-function todos(state = initialState, action: any) {
-  if (action.type === ADD_TASK && action.payload !== "") {
-    return [
-      {
+function todos(state = initialState, action: TodosAction) {
+  switch (action.type) {
+    case ADD_TASK:
+      return [
+        {
+          ...state,
+          id: Date.now().toString(),
+          taskText: action.payload,
+          active: true,
+        },
         ...state,
-        id: Date.now().toString(),
-        taskText: action.payload,
-        active: true,
-      },
-      ...state,
-    ];
-  } else if (action.type === TOGGLE_TASK) {
-    return state.map((item) => {
-      if (item.id === action.payload) {
-        return { ...item, active: !item.active };
-      } else return item;
-    });
-  } else if (action.type === DELETE_TASK) {
-    return state.filter((item) => {
-      return item.id !== action.payload;
-    });
-  } else if (action.type === ACCEPT_CHANGES) {
-    return state.map((item) => {
-      if (item.id === action.payload.id) {
-        return { ...item, taskText: action.payload.text };
-      } else return item;
-    });
-  } else return state;
+      ];
+    case TOGGLE_TASK:
+      return state.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, active: !item.active };
+        } else return item;
+      });
+    case DELETE_TASK:
+      return state.filter((item) => {
+        return item.id !== action.payload;
+      });
+    case ACCEPT_CHANGES:
+      return state.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, taskText: action.payload.text };
+        } else return item;
+      });
+    default:
+      return initialState;
+  }
 }
 
 export default todos;

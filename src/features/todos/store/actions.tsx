@@ -32,3 +32,14 @@ export function acceptChanges(id: string, text: string) {
     payload: { id: id, text: text },
   };
 }
+
+type CreateTaskAction = ReturnType<typeof createTask>;
+type ToggleTask = ReturnType<typeof toggleTask>;
+type DeleteTaskAction = ReturnType<typeof deleteTask>;
+type CreateAcceptChanges = ReturnType<typeof acceptChanges>;
+
+export type TodosAction =
+  | CreateTaskAction
+  | ToggleTask
+  | DeleteTaskAction
+  | CreateAcceptChanges;

@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import styles from "./addTask.module.css";
 import { useDispatch } from "react-redux";
 import { createTask } from "../store/actions";
@@ -11,22 +11,24 @@ export function AddTask() {
     setTask(e.currentTarget.value);
   }
 
-  function addTask(e: MouseEvent<HTMLButtonElement>) {
+  function addTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    dispatch(createTask(task));
-    setTask("");
+    if (task) {
+      dispatch(createTask(task));
+      setTask("");
+    }
   }
 
   return (
-    <form className={styles.addTaskWrapper}>
+    <form className={styles.addTaskWrapper} onSubmit={addTask}>
       <input
         value={task}
         className={styles.addTaskInput}
         type="text"
-        onChange={(e) => taskHandler(e)}
+        onChange={taskHandler}
         placeholder="Enter a task"
       />
-      <button onClick={(e) => addTask(e)} className={styles.addTaskButton}>
+      <button className={styles.addTaskButton} type="submit">
         Go
       </button>
     </form>
